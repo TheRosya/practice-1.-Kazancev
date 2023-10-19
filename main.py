@@ -31,13 +31,13 @@ def calc(chan: Channel, frequencies: dict[int, int]) -> list[str | list[int]]:
     mbits: list[int] = []
     metr: list[int] = []
     print(f"{chan.diapason}G канал {chan.name}, Частота: {chan.freq}")
-    for key, val in frequencies.items():
-        Ydb = P + Gt + Gr - val
+    for speed, dB in frequencies.items():
+        Ydb = P + Gt + Gr - dB
         FSL = Ydb - SOM
         D = 10 ** (((FSL - 33) / 20) - math.log10(chan.freq))
         Dmetr = int(D * 1000)
-        print(f"Mbit: {key}, Ydb: {Ydb}, FSL: {FSL}, D: {Dmetr}м")
-        mbits.append(key)
+        print(f"Mbit: {speed}, Ydb: {Ydb}, FSL: {FSL}, D: {Dmetr}м")
+        mbits.append(speed)
         metr.append(Dmetr)
     return [mbits, metr, "ro", mbits, metr]
 
