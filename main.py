@@ -10,19 +10,21 @@ class Channel:
     diapason: str
 
 
-P = 11
-Gt = 2
-Gr = 3
-
 G24 = {6: -87, 9: -86, 12: -85, 18: -83, 24: -80, 36: -76, 48: -71, 54: -66}
 
 G5 = {15: -96, 30: -95, 45: -92, 60: -90, 90: -86, 120: -83, 135: -77, 150: -74}
 
-chanel1 = Channel(name="1", freq=2412, diapason="2.4")
-chanel2 = Channel(name="9", freq=2452, diapason="2.4")
 
-chanel3 = Channel(name="112", freq=5560, diapason="5")
-chanel4 = Channel(name="157", freq=5785, diapason="5")
+P = 10
+Gt = 1
+Gr = 1
+
+
+chanel1 = Channel(name="7", freq=2442, diapason="2.4")
+chanel2 = Channel(name="8", freq=2447, diapason="2.4")
+
+chanel3 = Channel(name="100", freq=5500, diapason="5")
+chanel4 = Channel(name="153", freq=5765, diapason="5")
 
 
 def calc(chan: Channel, huiny: dict[int, int]) -> list[str | list[int]]:
