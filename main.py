@@ -10,15 +10,16 @@ class Channel:
     diapason: str
 
 
-G24 = {6: -87, 9: -86, 12: -85, 18: -83, 24: -80, 36: -76, 48: -71, 54: -66}
-
-G5 = {15: -96, 30: -95, 45: -92, 60: -90, 90: -86, 120: -83, 135: -77, 150: -74}
+GG = {
+    "2.4": {6: -87, 9: -86, 12: -85, 18: -83, 24: -80, 36: -76, 48: -71, 54: -66},
+    "5": {15: -96, 30: -95, 45: -92, 60: -90, 90: -86, 120: -83, 135: -77, 150: -74},
+}
 
 SOM = 10
 
-P = ...
-Gt = ...
-Gr = ...
+P: int = ...
+Gt: int = ...
+Gr: int = ...
 
 
 chanel1 = Channel(chanell_number=..., freq=..., diapason="2.4")
@@ -28,10 +29,11 @@ chanel3 = Channel(chanell_number=..., freq=..., diapason="5")
 chanel4 = Channel(chanell_number=..., freq=..., diapason="5")
 
 
-def calc(chan: Channel, frequencies: dict[int, int]) -> list[str | list[int]]:
+def calc(chan: Channel) -> list[str | list[int]]:
     mbits: list[int] = []
     metr: list[int] = []
-    print(f"{chan.diapason}G канал {chan.name}, Частота: {chan.freq}")
+    frequencies = GG[chan.diapason]
+    print(f"{chan.diapason}ГГц канал {chan.chanell_number}, Частота: {chan.freq}")
     for speed, dB in frequencies.items():
         Ydb = P + Gt + Gr - dB
         FSL = Ydb - SOM
@@ -44,10 +46,10 @@ def calc(chan: Channel, frequencies: dict[int, int]) -> list[str | list[int]]:
 
 
 plt.plot(
-    *calc(chan=chanel1, frequencies=G24),
-    *calc(chan=chanel2, frequencies=G24),
-    *calc(chan=chanel3, frequencies=G5),
-    *calc(chan=chanel4, frequencies=G5),
+    *calc(chanel1),
+    *calc(chanel2),
+    *calc(chanel3),
+    *calc(chanel4),
 )
 plt.xlabel("Мбит/сек")
 plt.ylabel("Метры")
