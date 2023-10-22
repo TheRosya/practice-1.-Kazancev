@@ -5,7 +5,7 @@ from dataclasses import dataclass
 
 @dataclass
 class Channel:
-    chanell_number: str
+    chanell_number: int
     freq: int
     diapason: str
 
