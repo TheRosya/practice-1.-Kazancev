@@ -2,4 +2,4 @@
 
 `python main.py`
 
-Insert your value instead of `...` to run a programm correctly
+open config.py and insert your value instead of `...` to run a programm correctly
