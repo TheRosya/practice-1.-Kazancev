@@ -42,13 +42,13 @@ def calc(chan: Channel) -> list[str | list[int]]:
     return [mbits, metr, "ro", mbits, metr]
 
 
-plt.plot(
+plt.plot(  # type: ignore
     *calc(chanel1),
     *calc(chanel2),
     *calc(chanel3),
     *calc(chanel4),
-)  # type ignore
-plt.xlabel("Мбит/сек")
-plt.ylabel("Метры")
-plt.grid(True)
-plt.show()
+)
+plt.xlabel("Мбит/сек")  # type: ignore
+plt.ylabel("Метры")  # type: ignore
+plt.grid(True)  # type: ignore
+plt.show()  # type: ignore
