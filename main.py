@@ -1,8 +1,8 @@
 import math
 import matplotlib.pyplot as plt
 from dataclasses import dataclass, field
-from config import *
-from constants import *
+from config import Gt, Gr, P, channel, channel2, channel3, channel4
+from constants import SOM, GG, freq_equality_for_5GG, freq_equality_for_2_4GG
 
 
 @dataclass
