@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from dataclasses import dataclass, field
 from config import *
 from constants import *
+from typing import Union
 
 
 @dataclass
@@ -26,7 +27,7 @@ chanel3 = Channel(chanell_number=channel3, diapason="5")
 chanel4 = Channel(chanell_number=channel4, diapason="5")
 
 
-def calc(chan: Channel) -> list[str | list[int]]:
+def calc(chan: Channel) -> list[Union[str, list[int]]]:
     mbits: list[int] = []
     metr: list[int] = []
     frequencies = GG[chan.diapason]
