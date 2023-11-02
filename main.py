@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 from dataclasses import dataclass, field
 from config import *
 from constants import *
-from typing import Union
 
 
 @dataclass
